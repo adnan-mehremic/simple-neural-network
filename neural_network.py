@@ -19,14 +19,17 @@ class NeuralNetwork():
     def train(self):
         pass
 
-    def __sigmoid(self):
-        pass
+    def __sigmoid(self, sum_of_weighted_inputs):
+        return 1/(1 + math.exp(-sum_of_weighted_inputs))
 
     def __sigmoid_gradient(self):
         pass
 
-    def __sum_of_weighted_inputs(self):
-        pass
+    def __sum_of_weighted_inputs(self, neuron_inputs):
+        sum_of_weighted_inputs = 0
+        for index, neuron_input in enumerate(neuron_inputs):
+            sum_of_weighted_inputs += self.weights[index] * neuron_input
+        return sum_of_weighted_inputs
 
 # Traning set for neural network
 training_set_examples = [{'inputs': [0, 0, 1], 'output': 0},
