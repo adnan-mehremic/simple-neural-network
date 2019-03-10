@@ -27,10 +27,12 @@ class NeuralNetwork:
                     adjust_weight = neuron_input * error_in_output * self.__sigmoid_gradient(predicted_output)
                     self.weights[index] += adjust_weight
 
-    def __sigmoid(self, sum_of_weighted_inputs):
+    @staticmethod
+    def __sigmoid(sum_of_weighted_inputs):
         return 1/(1 + math.exp(-sum_of_weighted_inputs))
 
-    def __sigmoid_gradient(self, neuron_output):
+    @staticmethod
+    def __sigmoid_gradient(neuron_output):
         return neuron_output * (1 - neuron_output)
 
     def __sum_of_weighted_inputs(self, neuron_inputs):
